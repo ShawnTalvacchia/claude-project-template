@@ -38,7 +38,7 @@ Before starting work:
 
 ## Review
 
-After workstreams land, produce a walkthrough — a checklist of what to verify, with context on where to look, what to do, and what to expect. Then slow down and walk through it. This is the longest step; it's where most of the phase's intelligence lands.
+After workstreams land, Claude generates a walkthrough — a streamlined checklist of what to verify, with context on where to look, what to do, and what to expect. You go through it manually, slow and deliberate. The checklist revises as items get checked off; a decisions log at the end captures anything new that surfaced (unless already documented elsewhere). This is the longest step; it's where most of the phase's intelligence lands.
 
 For designers especially: step out of the build conversation. Evaluate, compare, tinker. Open Figma if that's where you think.
 
@@ -47,9 +47,13 @@ For designers especially: step out of the build conversation. Evaluate, compare,
 - [ ] [Item to check] — [Where to look, what to do, what to expect]
 - [ ] [...]
 
-### Surfaced during review
+### Decisions during review
 
-[Questions, follow-up tasks, ideas. Each item gets routed: into the decisions log if it's a decision, the punch list if it's small, a new phase entry on the roadmap if it's bigger, `verification-checklist.md` if it's a cross-phase check, or `open-questions.md` if it's still unresolved.]
+[Decisions made while walking through the checklist — log here unless already documented elsewhere (e.g., `decisions.md`, feature docs).]
+
+### Surfaced elsewhere
+
+[Items to route: punch list (small fix), new phase entry on roadmap (bigger work), `verification-checklist.md` (cross-phase check), `open-questions.md` (still unresolved).]
 
 ## Decisions log
 

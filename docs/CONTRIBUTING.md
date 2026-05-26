@@ -36,7 +36,7 @@ Phases aren't time-boxed — one might run an afternoon, another might stretch a
 
 1. **Plan.** Sketch workstreams, name dependencies, tighten the thesis. Mostly writing — the thinking that makes the build cheaper.
 2. **Build.** Execute the workstreams. Capture decisions in the phase board's decisions log as they happen.
-3. **Review.** The longest step. Produce a walkthrough — a checklist of what to verify, with context on where to look, what to do, and what to expect. Then slow down and walk through it. This is where most of the project's intelligence lands: questions surface, decisions get logged, follow-up tasks (punch list, future phases) get written down. For designers especially, this is the moment to step out of the build conversation and into slower craft — evaluate, compare, tinker, open Figma if it helps.
+3. **Review.** The longest step. Claude generates a walkthrough — a streamlined checklist of what to verify, with context on where to look, what to do, and what to expect. You go through it manually, slow and deliberate. The checklist revises as items get checked off; a decisions log at the end captures anything new that surfaced (unless already documented elsewhere). This is where most of the project's intelligence lands — tasks for the punch list and ideas for the next phase show up here, not during the build. For designers especially, this is the moment to step out of the build conversation and into slower craft — evaluate, compare, tinker, open Figma if it helps.
 
 Phases close when their thesis is delivered. Closing produces: updated feature docs, decisions log entries, ROADMAP update, CLAUDE.md update, and the phase board archived to `docs/archive/phases/`.
 

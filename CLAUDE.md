@@ -15,6 +15,7 @@ See `docs/CONTRIBUTING.md` for full details.
 3. **Doc frontmatter:** Every doc has `status`, `last-reviewed`, `review-trigger`. Update `last-reviewed` when you touch a doc.
 4. **No feature sprawl.** If it's not on the phase board, surface it — don't build it without discussion. (Side task or punch list might be the right home; see CONTRIBUTING.)
 5. **Phase close = doc review.** Update feature docs, decisions log, ROADMAP, and this file. Archive the phase board.
+6. **One phase = one chat.** Closing a phase ends the session. The next phase opens in a new chat, started by a handoff message the user pastes in. Don't continue in the same conversation.
 
 ## Key docs
 

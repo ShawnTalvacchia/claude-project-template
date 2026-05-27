@@ -86,7 +86,7 @@ Before opening, the user should agree this is the right next phase. (If the road
 
 ## Closing a phase
 
-When the phase thesis is delivered:
+When the phase thesis is delivered. **A phase close ends the chat session** — do not open the next phase in the same conversation. Context gets heavy, decisions blur, and review discipline weakens when build energy carries forward. The next phase opens in a fresh chat, started by the handoff message you write in step 12.
 
 1. **Show the closing checklist to the user before starting.** Phase close is a high-leverage moment — confirm the list before editing docs.
 2. **Walk through the phase board's Decisions log.** Anything load-bearing belongs in `decisions.md`, a feature doc, or a strategy doc — not just the phase board (it's about to be archived).
@@ -98,6 +98,8 @@ When the phase thesis is delivered:
 8. **Update `CLAUDE.md`** — Current Phase points at the next phase (or "between phases"), Strategic Context updated if anything fundamental shifted.
 9. **Archive the phase board** — move `docs/phases/<phase-name>.md` → `docs/archive/phases/<phase-name>.md`. Update its frontmatter status to `archived`.
 10. **Structural audit** — read CLAUDE.md, ROADMAP, and the strategy docs end-to-end. Anything stale? Trim it.
+11. **Evaluate the next candidate.** Review the ROADMAP's Upcoming list, the open-questions log, and recent decisions. Discuss with the user if the call isn't obvious. Recommend one phase to open next.
+12. **Write the handoff message.** Compose a short message the user will paste into a new chat to open the next phase. Include: the next phase name + one-line thesis, the strategy docs to read first, the open questions to check, and the workstreams to start with. End the current session here.
 
 ## Doc maintenance
 

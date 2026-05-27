@@ -44,6 +44,8 @@ For designers especially: step out of the build conversation. Evaluate, compare,
 
 ### Verification walkthrough
 
+See `docs/CONTRIBUTING.md` → "Running a review" for how to generate this list. Each item: **what to check** — **where to look, what to do, what to expect**.
+
 - [ ] [Item to check] — [Where to look, what to do, what to expect]
 - [ ] [...]
 

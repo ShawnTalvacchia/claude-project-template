@@ -84,6 +84,61 @@ Before opening, the user should agree this is the right next phase. (If the road
 6. Update `docs/ROADMAP.md` — move the phase from Upcoming to Active.
 7. Tell the user the phase is open and you're ready to start.
 
+## Running a review
+
+Review is the longest, most consequential step inside a phase. The work happens in the phase board's Review section — that's where the walkthrough lives, gets revised, and accumulates decisions. Don't generate the walkthrough loose in chat.
+
+### When to start
+
+Trigger the review when one of these is true:
+
+- All workstream items are marked complete on the phase board.
+- The user signals the build is done ("I think we're ready to review," "feels finished").
+- A workstream is blocked (waiting on input, external dependency) — review what's done so far.
+
+### Generating the walkthrough
+
+Look at what the phase actually delivered. For each angle, write a verification item:
+
+1. **Workstream coverage.** Did each workstream item produce what it promised? Generate one item per workstream item that needs verification (some are obvious enough to skip).
+2. **Thesis check.** Does the phase's thesis hold now that it's built? At least one item that interrogates the structural claim.
+3. **Integration.** Anywhere two pieces meet — new code touching old, new docs referencing old — generate an item.
+4. **Edge cases.** Anything you noticed during the build that "should probably work but I didn't test." Surface it.
+
+Don't pad. A streamlined walkthrough of 5–12 well-chosen items beats a 30-item dump.
+
+### Item format
+
+Each item: **what to check**, **where to look**, **what to do**, **what to expect**.
+
+Good examples:
+
+- [ ] Hero passes screen-share test — open `index.html` at ~80% zoom, read headline from across the room. Should remain legible.
+- [ ] CTA link correct — inspect the "Get the template" button. Should link to the GitHub repo URL, not `#`.
+
+Bad example (too vague to act on):
+
+- [ ] Check the hero — make sure it looks good.
+
+### Iterating
+
+The walkthrough is a living document. As the user walks through:
+
+- **Pass:** check the box. Move on.
+- **Fail:** describe the failure inline under the item. Decide whether to fix in this phase (note it, fix it, re-check) or punt.
+- **Surface:** if walking through one item reveals a new concern, add a new item. Walkthroughs can grow during review.
+
+### Logging decisions and routing follow-ups
+
+At the end of the walkthrough on the phase board:
+
+- **Decisions during review** — log calls made while checking, unless already documented elsewhere.
+- **Surfaced elsewhere** — punch list for small fixes, new phase on roadmap for bigger work, `verification-checklist.md` for cross-phase checks, `open-questions.md` for unresolved questions.
+
+### Completion
+
+Review is complete when every walkthrough item is either checked off, fixed and re-checked, or explicitly accepted as good enough. Then move into the closing checklist.
+
 ## Closing a phase
 
 When the phase thesis is delivered. **A phase close ends the chat session** — do not open the next phase in the same conversation. Context gets heavy, decisions blur, and review discipline weakens when build energy carries forward. The next phase opens in a fresh chat, started by the handoff message you write in step 12.

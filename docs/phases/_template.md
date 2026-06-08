@@ -38,24 +38,11 @@ Before starting work:
 
 ## Review
 
-After workstreams land, Claude generates a walkthrough — a streamlined checklist of what to verify, with context on where to look, what to do, and what to expect. You go through it manually, slow and deliberate. The checklist revises as items get checked off; a decisions log at the end captures anything new that surfaced (unless already documented elsewhere). This is the longest step; it's where most of the phase's intelligence lands.
+After workstreams land, Claude generates a **walkthrough** as its own doc — `docs/phases/<phase-name>-walkthrough.md`, from `_walkthrough-template.md`. It's a streamlined, triaged checklist of what to verify, sorted by the kind of attention each item needs: **your judgment** (calls worth a second opinion), **your hands** (behaviors to drive), **your eyes** (surfaces to glance). You go through it manually, slow and deliberate. It revises as items get checked; a decisions log at the bottom captures anything that surfaces, each entry routed to its home doc. This is the longest step; it's where most of the phase's intelligence lands.
 
 For designers especially: step out of the build conversation. Evaluate, compare, tinker. Open Figma if that's where you think.
 
-### Verification walkthrough
-
-See `docs/CONTRIBUTING.md` → "Running a review" for how to generate this list. Each item: **what to check** — **where to look, what to do, what to expect**.
-
-- [ ] [Item to check] — [Where to look, what to do, what to expect]
-- [ ] [...]
-
-### Decisions during review
-
-[Decisions made while walking through the checklist — log here unless already documented elsewhere (e.g., `decisions.md`, feature docs).]
-
-### Surfaced elsewhere
-
-[Items to route: punch list (small fix), new phase entry on roadmap (bigger work), `verification-checklist.md` (cross-phase check), `open-questions.md` (still unresolved).]
+See `docs/CONTRIBUTING.md` → "Running a review" for how to generate and walk it. The walkthrough doc and this board archive together at phase close.
 
 ## Decisions log
 
@@ -74,6 +61,7 @@ Why: [reasoning, alternatives considered]
 Before archiving:
 
 - [ ] Walked the user through this checklist before editing docs
+- [ ] Walkthrough's "Decisions surfaced" log swept — each entry propagated to its `→` home doc
 - [ ] Decisions log items moved to appropriate homes (`decisions.md`, feature docs, strategy docs)
 - [ ] Affected feature docs in `docs/features/` updated
 - [ ] Affected implementation docs in `docs/implementation/` updated
@@ -81,7 +69,7 @@ Before archiving:
 - [ ] `docs/decisions.md` updated with non-obvious calls
 - [ ] `docs/ROADMAP.md` updated (phase moved to Closed; upcoming refreshed)
 - [ ] `CLAUDE.md` updated (Current Phase + Strategic Context if changed)
-- [ ] This phase board moved to `docs/archive/phases/` and frontmatter `status: archived`
+- [ ] This phase board **and its walkthrough** moved to `docs/archive/phases/`, both frontmatter `status: archived`
 - [ ] Structural audit: read CLAUDE.md + ROADMAP + strategy docs end-to-end, trim staleness
 - [ ] Evaluated next candidate (reviewed ROADMAP + open-questions; discussed with user if not obvious)
 - [ ] Wrote handoff message for the next chat (next phase name + thesis, docs to read, open questions, starting workstreams)

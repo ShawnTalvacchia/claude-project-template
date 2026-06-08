@@ -86,7 +86,7 @@ Before opening, the user should agree this is the right next phase. (If the road
 
 ## Running a review
 
-Review is the longest, most consequential step inside a phase. The work happens in the phase board's Review section — that's where the walkthrough lives, gets revised, and accumulates decisions. Don't generate the walkthrough loose in chat.
+Review is the longest, most consequential step inside a phase. The walkthrough is its own doc — `docs/phases/<phase-name>-walkthrough.md`, copied from `_walkthrough-template.md` — paired with the phase board and archived alongside it at close. Don't generate the walkthrough loose in chat, and don't bury it inside the phase board.
 
 ### When to start
 
@@ -98,25 +98,27 @@ Trigger the review when one of these is true:
 
 ### Generating the walkthrough
 
-Look at what the phase actually delivered. For each angle, write a verification item:
+Pin the walkthrough to the phase thesis, then look at what the phase actually delivered. The core move is **triage**: every item is sorted by the kind of attention it needs, not by which workstream produced it. Three categories, ordered most-demanding to least:
 
-1. **Workstream coverage.** Did each workstream item produce what it promised? Generate one item per workstream item that needs verification (some are obvious enough to skip).
-2. **Thesis check.** Does the phase's thesis hold now that it's built? At least one item that interrogates the structural claim.
-3. **Integration.** Anywhere two pieces meet — new code touching old, new docs referencing old — generate an item.
-4. **Edge cases.** Anything you noticed during the build that "should probably work but I didn't test." Surface it.
+1. **Open for your call · your judgment** — calls you made that another reasonable person might land differently. Magic numbers, naming compromises, scope cuts, V1 stubs. Lead with the call itself. Often the smallest section; zero is a valid count.
+2. **Worth verifying · your hands** — behaviors that need a human at the keyboard: multi-step round-trips, stateful flows, interaction nuance, anything automated checks or a static screenshot couldn't catch. Each item: **what to check — where to look, what to do, what to expect.**
+3. **Surfaces to glance · your eyes** — the surfaces the phase shipped; one look each confirms the thesis rendered. No steps, no expected-result spelling, no checkboxes.
 
-Don't pad. A streamlined walkthrough of 5–12 well-chosen items beats a 30-item dump.
+Give items referenceable IDs by section — `O1, O2…`, `V1, V2…`, `G1, G2…` — so they can be named in chat ("let's revisit O2").
+
+Don't pad. The structure exists to fight three habits: listing every state × surface permutation, spelling out what another item already exercises in passing, and dressing pure-visual nitpicks up as verification. A focused walkthrough beats a 30-item dump — past ~25 items, cut.
 
 ### Item format
 
-Each item: **what to check**, **where to look**, **what to do**, **what to expect**.
+Good "Worth verifying" item — actionable, names the expected result:
 
-Good examples:
+- [ ] **V1. Hero passes the screen-share test.** Open `index.html` at ~80% zoom, read the headline from across the room. Should remain legible.
 
-- [ ] Hero passes screen-share test — open `index.html` at ~80% zoom, read headline from across the room. Should remain legible.
-- [ ] CTA link correct — inspect the "Get the template" button. Should link to the GitHub repo URL, not `#`.
+Good "Surfaces to glance" item — one line, no steps:
 
-Bad example (too vague to act on):
+- **G1.** Get-the-template CTA — links to the real repo URL, not `#`.
+
+Bad (too vague to act on):
 
 - [ ] Check the hero — make sure it looks good.
 
@@ -124,34 +126,32 @@ Bad example (too vague to act on):
 
 The walkthrough is a living document. As the user walks through:
 
-- **Pass:** check the box. Move on.
-- **Fail:** describe the failure inline under the item. Decide whether to fix in this phase (note it, fix it, re-check) or punt.
-- **Surface:** if walking through one item reveals a new concern, add a new item. Walkthroughs can grow during review.
+- **Pass:** mark `[x]`. Move on.
+- **Issue:** mark `[!]`, describe it inline, and route it (below). Decide whether to fix in this phase (note it, fix it, re-check) or punt.
+- **Surface:** if walking one item reveals a new concern, add an item. Walkthroughs can grow during review.
+- **Drift:** if a fix during review makes an existing item inaccurate, edit that item in the same change. Stale walkthrough text is worse than none.
 
 ### Logging decisions and routing follow-ups
 
-At the end of the walkthrough on the phase board:
-
-- **Decisions during review** — log calls made while checking, unless already documented elsewhere.
-- **Surfaced elsewhere** — punch list for small fixes, new phase on roadmap for bigger work, `verification-checklist.md` for cross-phase checks, `open-questions.md` for unresolved questions.
+The walkthrough's **"Decisions surfaced"** log captures calls made while checking — append as you walk, each entry annotated with its `→ home-doc.md`. Route everything else: punch list for small fixes, new phase on the roadmap for bigger work, `verification-checklist.md` for cross-phase checks, `open-questions.md` for unresolved questions.
 
 ### Completion
 
-Review is complete when every walkthrough item is either checked off, fixed and re-checked, or explicitly accepted as good enough. Then move into the closing checklist.
+Review is complete when every item is `[x]`, fixed and re-checked, or explicitly accepted as good enough — and the "Decisions surfaced" log is ready for the phase-close sweep. Then move into the closing checklist.
 
 ## Closing a phase
 
 When the phase thesis is delivered. **A phase close ends the chat session** — do not open the next phase in the same conversation. Context gets heavy, decisions blur, and review discipline weakens when build energy carries forward. The next phase opens in a fresh chat, started by the handoff message you write in step 12.
 
 1. **Show the closing checklist to the user before starting.** Phase close is a high-leverage moment — confirm the list before editing docs.
-2. **Walk through the phase board's Decisions log.** Anything load-bearing belongs in `decisions.md`, a feature doc, or a strategy doc — not just the phase board (it's about to be archived).
+2. **Sweep the walkthrough's "Decisions surfaced" log, then the phase board's Decisions log.** Each walkthrough entry carries a `→ home-doc.md` annotation — propagate it there. Then check the board's own Decisions log: anything load-bearing belongs in `decisions.md`, a feature doc, or a strategy doc — not just the board (it's about to be archived). The walkthrough can't archive until every entry has landed.
 3. **Update affected feature docs** in `docs/features/`. Add new ones if the phase shipped a new feature.
 4. **Update affected implementation docs** in `docs/implementation/`.
 5. **Update `docs/strategy/open-questions.md`** — mark resolved, add new, update parked.
 6. **Update `docs/decisions.md`** — log non-obvious decisions with dates and reasoning.
 7. **Update `docs/ROADMAP.md`** — move phase to Closed, refresh upcoming list.
 8. **Update `CLAUDE.md`** — Current Phase points at the next phase (or "between phases"), Strategic Context updated if anything fundamental shifted.
-9. **Archive the phase board** — move `docs/phases/<phase-name>.md` → `docs/archive/phases/<phase-name>.md`. Update its frontmatter status to `archived`.
+9. **Archive the phase board and its walkthrough** — move `docs/phases/<phase-name>.md` and `docs/phases/<phase-name>-walkthrough.md` → `docs/archive/phases/`. Set both frontmatter statuses to `archived`.
 10. **Structural audit** — read CLAUDE.md, ROADMAP, and the strategy docs end-to-end. Anything stale? Trim it.
 11. **Evaluate the next candidate.** Review the ROADMAP's Upcoming list, the open-questions log, and recent decisions. Discuss with the user if the call isn't obvious. Recommend one phase to open next.
 12. **Write the handoff message.** Compose a short message the user will paste into a new chat to open the next phase. Include: the next phase name + one-line thesis, the strategy docs to read first, the open questions to check, and the workstreams to start with. End the current session here.

@@ -28,6 +28,7 @@ Budget 30–90 minutes for inquiry + setup. That feels like overhead. It isn't �
     │   └── future-considerations.md
     ├── phases/                        ← The work itself
     │   ├── _template.md               ← Copy this when opening a new phase
+    │   ├── _walkthrough-template.md   ← Copy this when a phase reaches review
     │   ├── punch-list.md              ← Tiny isolated fixes
     │   └── verification-checklist.md  ← Things to verify before milestones
     ├── features/                      ← Specs for things you've built

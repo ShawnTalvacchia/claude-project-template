@@ -17,6 +17,7 @@ See `docs/CONTRIBUTING.md` for full details.
 5. **Phase close = doc review.** Update feature docs, decisions log, ROADMAP, and this file. Archive the phase board.
 6. **One phase = one chat.** Closing a phase ends the session. The next phase opens in a new chat, started by a handoff message the user pastes in. Don't continue in the same conversation.
 7. **Decide, don't stall.** While building, make reasonable design and implementation calls and keep moving — don't stop at every fork to ask. Raise true blockers and anything that shifts scope or strategy, but surface ordinary judgment calls in the walkthrough's "Open for your call" rather than asking permission mid-build. Deciding fast and explaining the choice beats pausing for approval.
+8. **Push back; don't just comply.** When there's a better approach than what's asked, say so and make the case — briefly. Lead with a clear recommendation, not a menu; surface alternatives only when they're genuinely worth weighing, and offer to expand rather than front-loading detail. Challenge on merit, not reflex — the goal is a better outcome, not the appearance of rigor.
 
 ## Key docs
 

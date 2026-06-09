@@ -159,7 +159,7 @@ Review is complete when every item is `[x]`, fixed and re-checked, or explicitly
 
 ## Closing a phase
 
-When the phase thesis is delivered. **A phase close ends the chat session** — do not open the next phase in the same conversation. Context gets heavy, decisions blur, and review discipline weakens when build energy carries forward. The next phase opens in a fresh chat, started by the handoff message you write in step 12.
+When the phase thesis is delivered. **A phase close ends the chat session** — do not open the next phase in the same conversation. Context gets heavy, decisions blur, and review discipline weakens when build energy carries forward. The next phase opens in a fresh chat, started by the handoff prompt you write in step 12.
 
 1. **Show the closing checklist to the user before starting.** Phase close is a high-leverage moment — confirm the list before editing docs.
 2. **Sweep the walkthrough's "Decisions surfaced" log, then the phase board's Decisions log.** Each walkthrough entry carries a `→ home-doc.md` annotation — propagate it there. Then check the board's own Decisions log: anything load-bearing belongs in its home — a feature or strategy doc for feature/strategy calls, `decisions.md` for cross-cutting ones — not just the board (it's about to be archived). The walkthrough can't archive until every entry has landed.
@@ -171,8 +171,8 @@ When the phase thesis is delivered. **A phase close ends the chat session** — 
 8. **Update `CLAUDE.md`** — Current Phase points at the next phase (or "between phases"), Strategic Context updated if anything fundamental shifted.
 9. **Archive the phase board and its walkthrough** — move `docs/phases/<phase-name>.md` and `docs/phases/<phase-name>-walkthrough.md` → `docs/archive/phases/`. Set both frontmatter statuses to `archived`.
 10. **Structural audit** — read CLAUDE.md, ROADMAP, and the strategy docs end-to-end. Anything stale? Trim it.
-11. **Evaluate the next candidate.** Review the ROADMAP's Upcoming list, the open-questions log, and recent decisions. Discuss with the user if the call isn't obvious. Recommend one phase to open next.
-12. **Write the handoff message.** Compose a short message the user will paste into a new chat to open the next phase. Include: the next phase name + one-line thesis, the strategy docs to read first, the open questions to check, and the workstreams to start with. End the current session here.
+11. **Recommend the next phase.** Review the ROADMAP's Upcoming list, the open-questions log, and recent decisions, and recommend one phase to open next — with a one-line why. This is a recommendation for the user to agree to, not a unilateral call; discuss if it isn't obvious.
+12. **Once the user agrees, write the handoff prompt.** Compose the short message they'll paste into a fresh chat to open the agreed phase. Include: the phase name + one-line thesis, the strategy docs to read first, the open questions to check, and the workstreams to start with. Then end the current session.
 
 ## Doc maintenance
 

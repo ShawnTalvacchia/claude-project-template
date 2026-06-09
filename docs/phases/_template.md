@@ -71,6 +71,6 @@ Before archiving:
 - [ ] `CLAUDE.md` updated (Current Phase + Strategic Context if changed)
 - [ ] This phase board **and its walkthrough** moved to `docs/archive/phases/`, both frontmatter `status: archived`
 - [ ] Structural audit: read CLAUDE.md + ROADMAP + strategy docs end-to-end, trim staleness
-- [ ] Evaluated next candidate (reviewed ROADMAP + open-questions; discussed with user if not obvious)
-- [ ] Wrote handoff message for the next chat (next phase name + thesis, docs to read, open questions, starting workstreams)
+- [ ] Recommended the next phase and agreed it with the user (reviewed ROADMAP + open-questions)
+- [ ] Wrote the handoff prompt for the next chat (phase name + thesis, docs to read, open questions, starting workstreams)
 - [ ] **Ended the session.** The next phase opens in a new chat — do NOT continue here.

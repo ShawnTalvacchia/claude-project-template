@@ -26,7 +26,7 @@ Verification for the [Phase Name] phase. Pinned to the phase thesis: **[restate 
 
 ## Open for your call · your judgment
 
-Calls the author made that another reasonable person might land differently — direction, not bugs. Lead with the call itself, so the reader knows what's being asked without reading the rest. Point them at the quickest way to see it in context. If there are none, say so in one line.
+Calls the author made that another reasonable person might land differently — direction, not bugs. These are the decisions made during the build instead of stopping to ask — surfaced here so the reviewer can ratify or redirect. Lead with the call itself, so the reader knows what's being asked without reading the rest. Point them at the quickest way to see it in context. If there are none, say so in one line.
 
 IDs: **O1, O2, …** (use them in chat: "let's revisit O2").
 
@@ -65,7 +65,7 @@ Format:
 - **[Implementation-only change.]** [What/why.] → no doc update needed
 ```
 
-Route anything else that surfaced (the `[!]` items above included): small fix → `punch-list.md` · bigger work → new phase on `ROADMAP.md` · cross-phase check → `verification-checklist.md` · unresolved → `open-questions.md`.
+Route anything else that surfaced (the `[!]` items above included): small fix → `planning/punch-list.md` · bigger work → new phase on `ROADMAP.md` · cross-phase check → `planning/verification-checklist.md` · unresolved → `planning/open-questions.md`.
 
 <!--
 Authoring notes — read before writing this walkthrough.

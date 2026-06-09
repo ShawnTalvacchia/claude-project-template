@@ -20,4 +20,4 @@
 
 ## Backlog
 
-[Things we know we'll want eventually. Distinct from `strategy/future-considerations.md` (which holds known directions waiting on a trigger). Backlog items are work, not strategy.]
+[Things we know we'll want eventually. Distinct from `planning/future-considerations.md` (which holds known directions waiting on a trigger). Backlog items are work, not strategy.]

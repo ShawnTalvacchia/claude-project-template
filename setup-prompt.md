@@ -54,7 +54,7 @@ Ask:
 - What are you still unsure about? What hasn't been decided?
 - What would you need to learn or test to resolve each one?
 
-→ Capture in `docs/strategy/open-questions.md`. These are first-class artifacts — review them at the top of every phase.
+→ Capture in `docs/planning/open-questions.md`. These are first-class artifacts — review them at the top of every phase.
 
 ### Round 5 — Stack + constraints
 

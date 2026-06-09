@@ -18,7 +18,7 @@ Before starting work:
   - `docs/strategy/product-vision.md`
   - `docs/strategy/user-archetypes.md`
   - [Others specific to this phase]
-- [ ] Review `docs/strategy/open-questions.md` for blocking questions
+- [ ] Review `docs/planning/open-questions.md` for blocking questions
 - [ ] Skim affected feature docs:
   - [List]
 - [ ] Confirm thesis with user before opening workstreams
@@ -54,7 +54,7 @@ What: [decision]
 Why: [reasoning, alternatives considered]
 ```
 
-[At phase close, load-bearing entries move to `docs/decisions.md`.]
+[At phase close, feature-specific entries move to their feature doc; cross-cutting ones to `docs/decisions.md`. The archived board itself stays as the dated record.]
 
 ## Closing Checklist
 
@@ -65,8 +65,8 @@ Before archiving:
 - [ ] Decisions log items moved to appropriate homes (`decisions.md`, feature docs, strategy docs)
 - [ ] Affected feature docs in `docs/features/` updated
 - [ ] Affected implementation docs in `docs/implementation/` updated
-- [ ] `docs/strategy/open-questions.md` updated (resolved / parked / new)
-- [ ] `docs/decisions.md` updated with non-obvious calls
+- [ ] `docs/planning/open-questions.md` updated (resolved / parked / new)
+- [ ] `docs/decisions.md` updated with non-obvious cross-cutting calls (feature-specific ones went to feature docs)
 - [ ] `docs/ROADMAP.md` updated (phase moved to Closed; upcoming refreshed)
 - [ ] `CLAUDE.md` updated (Current Phase + Strategic Context if changed)
 - [ ] This phase board **and its walkthrough** moved to `docs/archive/phases/`, both frontmatter `status: archived`

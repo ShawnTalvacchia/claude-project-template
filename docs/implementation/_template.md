@@ -4,6 +4,8 @@ last-reviewed: YYYY-MM-DD
 review-trigger: convention change
 ---
 
+<!-- Create an implementation doc when you set a convention the next session must follow to stay consistent — a token system, naming rule, component catalog, or architecture choice. Rule of thumb: if you'd answer the same "how do we do X here?" twice, write it down once. See docs/CONTRIBUTING.md → "Where docs live." Delete this comment when you fill it in. -->
+
 # [Implementation Topic]
 
 ## What this is

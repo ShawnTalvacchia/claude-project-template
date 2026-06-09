@@ -16,6 +16,7 @@ See `docs/CONTRIBUTING.md` for full details.
 4. **No feature sprawl.** If it's not on the phase board, surface it — don't build it without discussion. (Side task or punch list might be the right home; see CONTRIBUTING.)
 5. **Phase close = doc review.** Update feature docs, decisions log, ROADMAP, and this file. Archive the phase board.
 6. **One phase = one chat.** Closing a phase ends the session. The next phase opens in a new chat, started by a handoff message the user pastes in. Don't continue in the same conversation.
+7. **Decide, don't stall.** While building, make reasonable design and implementation calls and keep moving — don't stop at every fork to ask. Raise true blockers and anything that shifts scope or strategy, but surface ordinary judgment calls in the walkthrough's "Open for your call" rather than asking permission mid-build. Deciding fast and explaining the choice beats pausing for approval.
 
 ## Key docs
 
@@ -23,11 +24,13 @@ See `docs/CONTRIBUTING.md` for full details.
 |-----|---------------|
 | `docs/ROADMAP.md` | Phase overview, current state, upcoming work |
 | `docs/CONTRIBUTING.md` | Workflow rules, phase lifecycle, side-task + punch-list flow |
-| `docs/decisions.md` | Historical record of design + product decisions |
+| `docs/decisions.md` | Cross-cutting project decisions (workflow, conventions, structure) — feature decisions live in their feature doc |
 | `docs/strategy/product-vision.md` | Product strategy, principles, what's in/out of scope |
 | `docs/strategy/user-archetypes.md` | Behavioral profiles of who this is for |
-| `docs/strategy/open-questions.md` | Unresolved strategic questions — review before each phase |
-| `docs/strategy/future-considerations.md` | Known-direction items waiting for a trigger |
+| `docs/planning/open-questions.md` | Unresolved questions — review before each phase |
+| `docs/planning/future-considerations.md` | Known-direction items waiting for a trigger |
+| `docs/planning/punch-list.md` | Small isolated fixes (P1, P2, …) |
+| `docs/planning/verification-checklist.md` | Cross-phase checks to run before milestones |
 | `docs/features/` | Specs for features you've built |
 | `docs/implementation/` | Patterns + conventions |
 

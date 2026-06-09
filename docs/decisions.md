@@ -6,15 +6,11 @@ review-trigger: phase close, retrospectives
 
 # Decisions log
 
-Historical record of design + product decisions. Newest at the top. Each entry should answer:
+Project-level decisions that have no other home — workflow, conventions, naming, tooling, structure. The cross-cutting calls that shape how the whole project is built, not how any one feature works.
 
-1. **What** we decided
-2. **Why** we decided it (the alternatives considered, the reasoning)
-3. **Where** it shows up (which surfaces, which docs, which code)
+**Feature-specific decisions don't belong here.** They live in that feature's doc under a "Decisions" section, next to what they affect (`features/<name>.md`). Phase-level reasoning is also preserved in the archived phase board and walkthrough. This file is only for the decisions that would otherwise be homeless.
 
-This file is the long-term institutional memory. Phase boards capture decisions while they're active; closing a phase moves load-bearing decisions here so they survive the archive.
-
-Don't log every decision — only the ones that would surprise a reader six months from now, or that future-you might be tempted to reopen.
+Log a call when it's both **cross-cutting and non-obvious** — something a future reader (or a future session) might be tempted to reopen without the original context. Newest at the top.
 
 ## Format
 

@@ -20,20 +20,21 @@ Budget 30–90 minutes for inquiry + setup. That feels like overhead. It isn't �
 └── docs/
     ├── ROADMAP.md                     ← Phase overview, current state
     ├── CONTRIBUTING.md                ← Workflow rules — the canonical "how we work" doc
-    ├── decisions.md                   ← Historical record of design + product decisions
-    ├── strategy/                      ← What you're building and why
+    ├── decisions.md                   ← Cross-cutting decisions with no feature/strategy home
+    ├── strategy/                      ← What you're building and why (settled)
     │   ├── product-vision.md
-    │   ├── user-archetypes.md
-    │   ├── open-questions.md
-    │   └── future-considerations.md
-    ├── phases/                        ← The work itself
-    │   ├── _template.md               ← Copy this when opening a new phase
-    │   ├── _walkthrough-template.md   ← Copy this when a phase reaches review
+    │   └── user-archetypes.md
+    ├── planning/                      ← Running lists that feed scheduling (pending)
+    │   ├── open-questions.md          ← Unresolved questions — review before each phase
+    │   ├── future-considerations.md   ← Known directions waiting for a trigger
     │   ├── punch-list.md              ← Tiny isolated fixes
     │   └── verification-checklist.md  ← Things to verify before milestones
-    ├── features/                      ← Specs for things you've built
+    ├── phases/                        ← Active work: boards + walkthroughs (+ molds)
+    │   ├── _template.md               ← Copy this when opening a new phase
+    │   └── _walkthrough-template.md   ← Copy this when a phase reaches review
+    ├── features/                      ← What's built — one doc per feature
     │   └── _template.md
-    ├── implementation/                ← Patterns + conventions (design system, etc.)
+    ├── implementation/                ← How it's built — patterns + conventions
     │   └── _template.md
     └── archive/phases/                ← Closed phase boards live here
 ```

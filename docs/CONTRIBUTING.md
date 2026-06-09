@@ -34,8 +34,8 @@ Open one or two at a time. A phase has a thesis (the structural change it delive
 
 Phases aren't time-boxed — one might run an afternoon, another might stretch across many days. What's consistent is the rhythm:
 
-1. **Plan.** Sketch workstreams, name dependencies, tighten the thesis. Mostly writing — the thinking that makes the build cheaper.
-2. **Build.** Execute the workstreams. Capture decisions in the phase board's decisions log as they happen.
+1. **Plan.** Claude drafts the board — workstreams, dependencies, thesis. You skim it for alignment rather than perfecting it on paper; it's usually faster to react to a real build than to a plan.
+2. **Build.** Claude executes the workstreams, logging decisions on the board as they happen. Bias to action: make the reasonable call at each fork and keep moving — raise genuine blockers and anything that shifts scope or strategy, but don't stop for approval on ordinary design and implementation choices. The calls worth a second opinion get surfaced in review's "Open for your call," not litigated mid-build.
 3. **Review.** The longest step. Claude generates a walkthrough — a streamlined checklist of what to verify, with context on where to look, what to do, and what to expect. You go through it manually, slow and deliberate. The checklist revises as items get checked off; a decisions log at the end captures anything new that surfaced (unless already documented elsewhere). This is where most of the project's intelligence lands — tasks for the punch list and ideas for the next phase show up here, not during the build. For designers especially, this is the moment to step out of the build conversation and into slower craft — evaluate, compare, tinker, open Figma if it helps.
 
 Phases close when their thesis is delivered. Closing produces: updated feature docs, decisions log entries, ROADMAP update, CLAUDE.md update, and the phase board archived to `docs/archive/phases/`.
@@ -48,7 +48,7 @@ Default for "should I resume a paused phase?" is **no — ask the user first.**
 
 ### Punch list — ≤30min isolated fixes
 
-For UI tweaks, copy edits, small bugs. Lives in `docs/phases/punch-list.md`. Each item is numbered (P1, P2, ...) with a one-liner + status. Work from the file in any session.
+For UI tweaks, copy edits, small bugs. Lives in `docs/planning/punch-list.md`. Each item is numbered (P1, P2, ...) with a one-liner + status. Work from the file in any session.
 
 ## Decision tree
 
@@ -68,6 +68,24 @@ Is it multi-task work with a structural thesis, multiple decisions to make,
 Is it strategic, unresolved, needs a decision before we can act?
   → Open questions log
 ```
+
+## Where docs live
+
+Five folders, each with one job. Knowing which is which is half of keeping the project legible.
+
+| Folder | Holds | Temperature |
+|--------|-------|-------------|
+| `strategy/` | What's settled: product vision, user archetypes. The foundation. | Stable — rarely changes |
+| `planning/` | What's pending: open questions, future considerations, punch list, verification checklist. The running lists that feed scheduling. | Churns constantly |
+| `phases/` | What's active: the phase board(s) and walkthrough(s) you're working now, plus the `_template` molds. | Ephemeral — archives when done |
+| `features/` | What's built: one doc per feature — what it does, key decisions, surfaces. | Updated when a feature changes |
+| `implementation/` | How it's built: patterns, conventions, token/component references. | Updated when a convention changes |
+
+`features/` and `implementation/` start empty (just a `_template.md`). You add to them as the project produces things worth documenting:
+
+- **Add a feature doc** when a phase ships something a user can see or do that didn't exist before. One doc per feature, from `features/_template.md`. Keep it current as the feature changes — a drifted feature doc is worse than none.
+- **Add an implementation doc** when you set a convention the next session needs to follow to stay consistent — a token system, a naming rule, a component catalog, an architecture choice. Rule of thumb: if you'd answer the same "how do we do X here?" twice, write it down once, from `implementation/_template.md`.
+- **The test:** if it's *what the product does*, it's a feature doc; if it's *how the code is built*, it's an implementation doc. The reasoning behind a feature or convention goes in that doc's own "Decisions" section — `decisions.md` is only for cross-cutting calls that belong to no single doc (workflow, naming, structure).
 
 ## Opening a phase
 
@@ -133,7 +151,7 @@ The walkthrough is a living document. As the user walks through:
 
 ### Logging decisions and routing follow-ups
 
-The walkthrough's **"Decisions surfaced"** log captures calls made while checking — append as you walk, each entry annotated with its `→ home-doc.md`. Route everything else: punch list for small fixes, new phase on the roadmap for bigger work, `verification-checklist.md` for cross-phase checks, `open-questions.md` for unresolved questions.
+The walkthrough's **"Decisions surfaced"** log captures calls made while checking — append as you walk, each entry annotated with its `→ home-doc.md`. Route everything else: punch list for small fixes, new phase on the roadmap for bigger work, `planning/verification-checklist.md` for cross-phase checks, `planning/open-questions.md` for unresolved questions.
 
 ### Completion
 
@@ -144,11 +162,11 @@ Review is complete when every item is `[x]`, fixed and re-checked, or explicitly
 When the phase thesis is delivered. **A phase close ends the chat session** — do not open the next phase in the same conversation. Context gets heavy, decisions blur, and review discipline weakens when build energy carries forward. The next phase opens in a fresh chat, started by the handoff message you write in step 12.
 
 1. **Show the closing checklist to the user before starting.** Phase close is a high-leverage moment — confirm the list before editing docs.
-2. **Sweep the walkthrough's "Decisions surfaced" log, then the phase board's Decisions log.** Each walkthrough entry carries a `→ home-doc.md` annotation — propagate it there. Then check the board's own Decisions log: anything load-bearing belongs in `decisions.md`, a feature doc, or a strategy doc — not just the board (it's about to be archived). The walkthrough can't archive until every entry has landed.
+2. **Sweep the walkthrough's "Decisions surfaced" log, then the phase board's Decisions log.** Each walkthrough entry carries a `→ home-doc.md` annotation — propagate it there. Then check the board's own Decisions log: anything load-bearing belongs in its home — a feature or strategy doc for feature/strategy calls, `decisions.md` for cross-cutting ones — not just the board (it's about to be archived). The walkthrough can't archive until every entry has landed.
 3. **Update affected feature docs** in `docs/features/`. Add new ones if the phase shipped a new feature.
 4. **Update affected implementation docs** in `docs/implementation/`.
-5. **Update `docs/strategy/open-questions.md`** — mark resolved, add new, update parked.
-6. **Update `docs/decisions.md`** — log non-obvious decisions with dates and reasoning.
+5. **Update `docs/planning/open-questions.md`** — mark resolved, add new, update parked.
+6. **Update `docs/decisions.md`** — log non-obvious *cross-cutting* decisions (workflow, conventions, structure) with dates and reasoning. Feature-specific calls go in the feature doc, not here.
 7. **Update `docs/ROADMAP.md`** — move phase to Closed, refresh upcoming list.
 8. **Update `CLAUDE.md`** — Current Phase points at the next phase (or "between phases"), Strategic Context updated if anything fundamental shifted.
 9. **Archive the phase board and its walkthrough** — move `docs/phases/<phase-name>.md` and `docs/phases/<phase-name>-walkthrough.md` → `docs/archive/phases/`. Set both frontmatter statuses to `archived`.
@@ -161,11 +179,11 @@ When the phase thesis is delivered. **A phase close ends the chat session** — 
 - **Touching a doc?** Update `last-reviewed`.
 - **Doc is wrong or out of date?** Fix it in the same PR as the work that surfaced it.
 - **Doc is unused?** Archive or delete. Stale docs are worse than no docs.
-- **CLAUDE.md is the loaded-every-session doc.** Keep it under 200 lines. If it's growing, move history to `decisions.md` and detail to feature/implementation docs.
+- **CLAUDE.md is the loaded-every-session doc.** Keep it under 200 lines. If it's growing, move cross-cutting decisions to `decisions.md` and detail to feature/implementation docs.
 
 ## Memory and other persistence
 
 - **Claude's memory** is for cross-conversation facts about the user and project that aren't derivable from code or docs. Workflow preferences, user role, project-level constraints that don't fit elsewhere.
 - **Phase boards** persist within a phase but don't outlive it (they archive).
-- **Decisions log** is the long-term institutional memory of why things are the way they are.
+- **Decisions log** (`decisions.md`) holds cross-cutting calls with no feature/strategy home. Feature reasoning lives in feature docs; phase-level reasoning lives in archived phase boards and walkthroughs.
 - **Feature docs** describe current state. Decisions describe how we got here.

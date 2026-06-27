@@ -1,18 +1,19 @@
 ---
 status: active
-last-reviewed: 2026-05-26
+last-reviewed: 2026-06-25
 review-trigger: feature ideas, scale milestones
 ---
 
 # Future Considerations
 
-Known-direction items waiting for a trigger to land. Distinct from:
+Known-direction items waiting for a trigger to land — the direction is decided, only the timing isn't. One of three planning trackers; see `CONTRIBUTING.md` → "The planning trackers" for how it relates to open questions and the punch list, and how work flows between them.
 
-- **Open questions** — things we haven't decided. Future considerations are decided in direction, just not in timing.
-- **Punch list** — concrete fixes ready to do. Future considerations are speculative.
-- **Backlog** — work we know we'll do. Future considerations need a trigger event.
+**Lifecycle.** An item lives here until either:
 
-Items graduate out — to a phase board, punch list, or feature scope — when their trigger fires.
+- its **trigger fires** (data scale, user feedback, adjacent work shipping) → **promote out** to a phase board, the punch list, or feature scope; or
+- a phase **ships it** → **remove it** — the phase archive or feature doc is the record; don't keep a shipped entry behind a "done" banner.
+
+Reassessment is ritualized at phase open (scan for fired triggers) and phase close (prune shipped). This file is not an archive.
 
 ## Format
 

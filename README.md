@@ -43,7 +43,7 @@ Budget 30–90 minutes for inquiry + setup. That feels like overhead. It isn't �
 
 - **Docs-first.** Decide before you build. Strategy → roadmap → phase board → code. Each step makes the next one cheaper.
 - **Phased work.** A phase is a focused chunk of work with a thesis (the structural change it delivers). It has an opening checklist, workstreams, a decisions log, and a closing checklist. You only ever have one or two phases open at a time.
-- **Three sizes of work.** Phases (multi-task design work) → side tasks (~30min–few-hour focused PRs) → punch list (≤30min isolated fixes). Match the work to the right size.
+- **Four modes of work.** Three sized by effort — phases (multi-task design work) → side tasks (~30min–few-hour focused PRs) → punch list (≤30min isolated fixes) — plus **system work**: meta-work on the docs/workflow itself, the one mode allowed to touch the governance docs. Match the work to the right mode.
 - **Thin `CLAUDE.md`.** Project rules + pointers, not history. Closed phases archive out. Decisions move to `decisions.md`. The file Claude loads every session stays small.
 - **Trust the system, not the conversation.** Anything load-bearing goes in a doc, not chat. The next conversation reads docs cold — they're the handoff.
 

@@ -1,6 +1,6 @@
 ---
 status: canonical
-last-reviewed: 2026-05-26
+last-reviewed: 2026-06-25
 review-trigger: workflow changes
 ---
 
@@ -26,7 +26,7 @@ review-trigger: <what makes this doc stale>
 
 ## The work model
 
-Three sizes of work. Pick the right one before starting.
+Four modes of work. The first three are sized by effort — pick the right one before starting. The fourth is a different axis: meta-work on the system itself.
 
 ### Phases — multi-task design work
 
@@ -50,6 +50,12 @@ Default for "should I resume a paused phase?" is **no — ask the user first.**
 
 For UI tweaks, copy edits, small bugs. Lives in `docs/planning/punch-list.md`. Each item is numbered (P1, P2, ...) with a one-liner + status. Work from the file in any session.
 
+### System work — meta-work on the system itself
+
+The three modes above are sized by effort. System work is a different axis: changing *how you work* rather than building the product — rewriting these rules, restructuring a tracker, reorganizing the doc tree, editing `CLAUDE.md` or the ROADMAP's structure.
+
+It's the **inverse of a side task**: where a side task must NOT touch the governance docs, system work is the one mode that exists *to* touch them. Done with the user, between phases (not mid-review), as its own commit. No phase board, no walkthrough. Keep it lean — a system pass should leave the rule-set the same size or smaller, not bigger.
+
 ## Decision tree
 
 "I noticed something we should do. Where does it go?"
@@ -67,6 +73,13 @@ Is it multi-task work with a structural thesis, multiple decisions to make,
 
 Is it strategic, unresolved, needs a decision before we can act?
   → Open questions log
+
+Is the direction known but it's waiting on a trigger (data scale, user
+  feedback, adjacent work shipping)?
+  → Future considerations
+
+Is it changing how we work — the rules, the docs, or their structure?
+  → System work (with the user, between phases)
 ```
 
 ## Where docs live
@@ -87,6 +100,22 @@ Five folders, each with one job. Knowing which is which is half of keeping the p
 - **Add an implementation doc** when you set a convention the next session needs to follow to stay consistent — a token system, a naming rule, a component catalog, an architecture choice. Rule of thumb: if you'd answer the same "how do we do X here?" twice, write it down once, from `implementation/_template.md`.
 - **The test:** if it's *what the product does*, it's a feature doc; if it's *how the code is built*, it's an implementation doc. The reasoning behind a feature or convention goes in that doc's own "Decisions" section — `decisions.md` is only for cross-cutting calls that belong to no single doc (workflow, naming, structure).
 
+## The planning trackers
+
+The `planning/` folder holds three running lists, each a different *stance* on not-yet-done work. Keep an item in the one that matches its stance; move it when the stance changes.
+
+| Tracker | Holds | Unit | Default exit |
+|---------|-------|------|-------------|
+| `punch-list.md` | Known small fixes (≤30min) | the fix | **Removed** when fixed — the commit is the record |
+| `open-questions.md` | Unanswered questions blocking future work | the question | **Compressed** to a one-line pointer when resolved |
+| `future-considerations.md` | Known directions waiting for a trigger | the trigger | **Removed** when shipped, or **promoted** when the trigger fires |
+
+**How work flows between them:** an **open question** resolves → it becomes a future consideration (direction now known), a punch-list item, a phase, or just a recorded decision. A **future consideration**'s trigger fires → it promotes to the punch list, a phase, or feature scope. A **punch-list** item that grows past ~30min or sprouts a design question → it promotes to a phase (or to open questions). Any of them, once it's multi-task with real design thinking → it opens a phase.
+
+**Shared rule — prune on resolve.** None of these is an archive. When an item is done it *leaves* — removed, or compressed to a pointer at its home doc / phase archive. Reassessment is ritualized at phase open (scan for overlap + fired triggers) and phase close (prune shipped, compress resolved). Don't let finished items pile up behind "done" banners — that bloat is exactly what these rules exist to prevent.
+
+(`verification-checklist.md` lives here too but isn't a flow tracker — it's a pre-milestone checklist of things to verify, not work-on-deck.)
+
 ## Opening a phase
 
 Before opening, the user should agree this is the right next phase. (If the roadmap already names it, that's the agreement.)
@@ -96,6 +125,7 @@ Before opening, the user should agree this is the right next phase. (If the road
 3. Fill the Opening Checklist:
    - List the strategy docs to read before starting
    - List the open questions to check
+   - Scan the punch list and future considerations — adopt any items this phase overlaps, and promote any future consideration whose trigger this phase fires
    - List the feature / implementation docs likely to be touched
 4. Sketch workstreams A, B, C — initial scope, ordered by dependency.
 5. Update `CLAUDE.md` → Current Phase section.
@@ -165,7 +195,10 @@ When the phase thesis is delivered. **A phase close ends the chat session** — 
 2. **Sweep the walkthrough's "Decisions surfaced" log, then the phase board's Decisions log.** Each walkthrough entry carries a `→ home-doc.md` annotation — propagate it there. Then check the board's own Decisions log: anything load-bearing belongs in its home — a feature or strategy doc for feature/strategy calls, `decisions.md` for cross-cutting ones — not just the board (it's about to be archived). The walkthrough can't archive until every entry has landed.
 3. **Update affected feature docs** in `docs/features/`. Add new ones if the phase shipped a new feature.
 4. **Update affected implementation docs** in `docs/implementation/`.
-5. **Update `docs/planning/open-questions.md`** — mark resolved, add new, update parked.
+5. **Prune the planning trackers** (the shared prune-on-resolve rule):
+   - `open-questions.md` — mark resolved, **compressing each resolved item to a one-line pointer at the doc that now owns the answer**; add new; update parked.
+   - `future-considerations.md` — remove any this phase shipped; promote any whose trigger fired.
+   - `punch-list.md` — review items closed since the last phase close; if a fix changed a feature or implementation doc, update what was missed.
 6. **Update `docs/decisions.md`** — log non-obvious *cross-cutting* decisions (workflow, conventions, structure) with dates and reasoning. Feature-specific calls go in the feature doc, not here.
 7. **Update `docs/ROADMAP.md`** — move phase to Closed, refresh upcoming list.
 8. **Update `CLAUDE.md`** — Current Phase points at the next phase (or "between phases"), Strategic Context updated if anything fundamental shifted.
